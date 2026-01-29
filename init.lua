@@ -25,6 +25,7 @@ vim.keymap.set('n', '<leader>q', ':tabclose<CR>')
 vim.keymap.set('n', '<leader>Q', ':bd!<CR>')
 vim.keymap.set('n', '<leader>v', ':vsplit<CR>')
 vim.keymap.set('n', '<leader>h', ':split<CR>')
+vim.keymap.set('n', '<C-x>', '<C-w>')
 
 vim.keymap.set('n', '<leader>t', ':term<CR>')
 
@@ -57,14 +58,24 @@ vim.lsp.enable('clangd')
 
 vim.diagnostic.config({virtual_text=false, signs=false, underline=false})
 
+vim.keymap.set('n', '<leader>f', function()
+   vim.lsp.buf.format({ async=true })
+   print("[SUCCESS] Formatted!")
+end)
+
 local cmp = require('cmp')
 
 cmp.setup({
 	mapping = {
+		['<C-i>'] = cmp.mapping.complete(),
 		['<C-A-i>'] = cmp.mapping.complete(),
 		['<C-A-j>'] = cmp.mapping.open_docs(),
+      ['<enter>'] = cmp.mapping.confirm(),
+      ['<TAB>'] = cmp.mapping.confirm(),
 		['<C-n>'] = cmp.mapping.select_next_item(),
 		['<C-p>'] = cmp.mapping.select_prev_item(),
+		['<Down>'] = cmp.mapping.select_next_item(),
+		['<Up>'] = cmp.mapping.select_prev_item(),
 	},
 	window={completion={max_height = 7}},
 	sources={{name="nvim_lsp"}, {name="buffer"}},
@@ -72,4 +83,3 @@ cmp.setup({
 })
 
 vim.o.completeopt = 'menuone'
-
