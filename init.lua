@@ -70,5 +70,5 @@ cmp.setup({
 	completion = { autocomplete = false, keyword_length = 2 },
 })
 
-vim.cmd("set completeopt=menuone")
+vim.o.completeopt = 'menuone'
 
