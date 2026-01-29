@@ -18,14 +18,17 @@ vim.cmd('syntax on')
 
 vim.g.mapleader = " "
 
+vim.keymap.set('n', '<leader>l', ':tabn<CR>')
+vim.keymap.set('n', '<leader>h', ':tabp<CR>')
 vim.keymap.set('n', '<leader>.', ':tabn<CR>')
 vim.keymap.set('n', '<leader>,', ':tabp<CR>')
 vim.keymap.set('n', '<leader>n', ':tabnew<CR>')
 vim.keymap.set('n', '<leader>q', ':tabclose<CR>')
 vim.keymap.set('n', '<leader>Q', ':bd!<CR>')
 
-vim.keymap.set('n', '<C-x>', '<C-w>')
-vim.keymap.set('n', '<C-x>1', ':on<CR>')
+vim.keymap.set('n', '<leader>e', ':Ex<CR>')
+
+vim.keymap.set('n', '<C-w>1', ':on<CR>')
 
 vim.keymap.set('n', '<leader>t', ':term<CR>')
 
@@ -50,16 +53,29 @@ call plug#end()
 ]])
 
 vim.lsp.config.clangd = {
-   root_markers={'.git/'},
+   root_markers={'.git'},
    filetypes={'c'},
 }
 
 vim.lsp.enable('clangd')
 
+vim.lsp.config.cmake = {
+   cmd = {'cmake-language-server'},
+   root_markers={'CMakeLists.txt'},
+   filetypes={'cmake'}
+}
+
+vim.lsp.enable('cmake')
+
 vim.diagnostic.config({virtual_text=false, signs=false, underline=false})
 
 vim.keymap.set('n', '<leader>f', function()
    vim.lsp.buf.format({ async=true })
+   print("[SUCCESS] Formatted!")
+end)
+
+vim.keymap.set('n', '<leader>r', function()
+   vim.lsp.buf.rename()
    print("[SUCCESS] Formatted!")
 end)
 
@@ -71,6 +87,7 @@ cmp.setup({
 		['<C-A-i>'] = cmp.mapping.complete(),
 		['<C-A-j>'] = cmp.mapping.open_docs(),
       ['<enter>'] = cmp.mapping.confirm(),
+      ['<C-enter>'] = cmp.mapping.confirm(),
       ['<TAB>'] = cmp.mapping.confirm(),
 		['<C-n>'] = cmp.mapping.select_next_item(),
 		['<C-p>'] = cmp.mapping.select_prev_item(),
