@@ -18,13 +18,14 @@ vim.cmd('syntax on')
 
 vim.g.mapleader = " "
 
-vim.keymap.set('n', '<leader>l', ':tabn<CR>')
-vim.keymap.set('n', '<leader>h', ':tabp<CR>')
 vim.keymap.set('n', '<leader>.', ':tabn<CR>')
 vim.keymap.set('n', '<leader>,', ':tabp<CR>')
 vim.keymap.set('n', '<leader>n', ':tabnew<CR>')
 vim.keymap.set('n', '<leader>q', ':tabclose<CR>')
 vim.keymap.set('n', '<leader>Q', ':bd!<CR>')
+vim.keymap.set('n', '<leader>v', ':vsplit<CR>')
+vim.keymap.set('n', '<leader>h', ':split<CR>')
+
 vim.keymap.set('n', '<leader>t', ':term<CR>')
 
 vim.keymap.set('i', '<C-f>', '<Right>')
