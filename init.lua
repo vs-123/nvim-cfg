@@ -43,6 +43,7 @@ vim.cmd("Plug 'hrsh7th/nvim-cmp'")
 vim.cmd("Plug 'hrsh7th/cmp-nvim-lsp'")
 vim.cmd("Plug 'hrsh7th/cmp-buffer'")
 vim.cmd("Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}")
+vim.cmd("Plug 'jremmen/vim-ripgrep'")
 vim.cmd("call plug#end()")
 
 vim.lsp.config.clangd = {
@@ -60,8 +61,8 @@ local cmp = require('cmp')
 
 cmp.setup({
 	mapping = {
-		['<C-Space>'] = cmp.mapping.complete(),
 		['<C-A-i>'] = cmp.mapping.complete(),
+		['<C-A-j>'] = cmp.mapping.open_docs(),
 		['<C-n>'] = cmp.mapping.select_next_item(),
 		['<C-p>'] = cmp.mapping.select_prev_item(),
 	},
