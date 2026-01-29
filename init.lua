@@ -6,6 +6,8 @@ vim.o.expandtab = true
 vim.o.tabstop = 3
 vim.o.shiftwidth = 3
 
+vim.o.shortmess = 'I'
+
 vim.o.mouse = 'a'
 vim.o.scrolloff = 3
 
@@ -54,7 +56,7 @@ cmp.setup({
 		['<C-p>'] = cmp.mapping.select_prev_item(),
 	},
 	window={completion={max_height = 7}},
-	sources={{name="nvim_lsp"}},
+	sources={{name="nvim_lsp"}, {name="buffer"}},
 	completion = { autocomplete = false, keyword_length = 2 },
 })
 
