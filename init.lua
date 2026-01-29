@@ -54,8 +54,6 @@ vim.lsp.config.clangd = {
 
 vim.lsp.enable('clangd')
 
-vim.cmd("autocmd FileType c lua vim.b.treesitter_language = 'c'")
-
 vim.diagnostic.config({virtual_text=false, signs=false, underline=false})
 
 local cmp = require('cmp')
