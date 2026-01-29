@@ -23,9 +23,9 @@ vim.keymap.set('n', '<leader>,', ':tabp<CR>')
 vim.keymap.set('n', '<leader>n', ':tabnew<CR>')
 vim.keymap.set('n', '<leader>q', ':tabclose<CR>')
 vim.keymap.set('n', '<leader>Q', ':bd!<CR>')
-vim.keymap.set('n', '<leader>v', ':vsplit<CR>')
-vim.keymap.set('n', '<leader>h', ':split<CR>')
+
 vim.keymap.set('n', '<C-x>', '<C-w>')
+vim.keymap.set('n', '<C-x>1', ':on<CR>')
 
 vim.keymap.set('n', '<leader>t', ':term<CR>')
 
