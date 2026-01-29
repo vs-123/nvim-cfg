@@ -20,12 +20,22 @@ vim.g.mapleader = " "
 
 vim.keymap.set('n', '<leader>l', ':tabn<CR>')
 vim.keymap.set('n', '<leader>h', ':tabp<CR>')
-
 vim.keymap.set('n', '<leader>.', ':tabn<CR>')
 vim.keymap.set('n', '<leader>,', ':tabp<CR>')
-
 vim.keymap.set('n', '<leader>n', ':tabnew<CR>')
 vim.keymap.set('n', '<leader>q', ':tabclose<CR>')
+vim.keymap.set('n', '<leader>Q', ':bd!<CR>')
+vim.keymap.set('n', '<leader>t', ':term<CR>')
+
+vim.keymap.set('i', '<C-f>', '<Right>')
+vim.keymap.set('i', '<C-b>', '<Left>')
+
+vim.keymap.set('t', '<esc>', '<C-\\><C-n>')
+
+vim.keymap.set('c', '<C-a>', '<HOME>')
+vim.keymap.set('c', '<C-e>', '<END>')
+vim.keymap.set('c', '<C-f>', '<Right>')
+vim.keymap.set('c', '<C-b>', '<Left>')
 
 vim.cmd("call plug#begin()")
 vim.cmd("Plug 'neovim/nvim-lspconfig'")

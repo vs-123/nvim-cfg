@@ -1,5 +1,4 @@
 # NVIM-CFG
 
-My personal Neovim Configuration.
-
+My personal Neovim configuration.
 
