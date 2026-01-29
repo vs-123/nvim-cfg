@@ -37,13 +37,15 @@ vim.keymap.set('c', '<C-e>', '<END>')
 vim.keymap.set('c', '<C-f>', '<Right>')
 vim.keymap.set('c', '<C-b>', '<Left>')
 
-vim.cmd("call plug#begin()")
-vim.cmd("Plug 'neovim/nvim-lspconfig'")
-vim.cmd("Plug 'hrsh7th/nvim-cmp'")
-vim.cmd("Plug 'hrsh7th/cmp-nvim-lsp'")
-vim.cmd("Plug 'hrsh7th/cmp-buffer'")
-vim.cmd("Plug 'jremmen/vim-ripgrep'")
-vim.cmd("call plug#end()")
+vim.cmd([[
+call plug#begin()
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'jremmen/vim-ripgrep'
+call plug#end()
+]])
 
 vim.lsp.config.clangd = {
    root_markers={'.git/'},
